@@ -5,6 +5,7 @@ jobs:
   test-python-versions:
     name: Check Python ${{ matrix.python-version }} on Ubuntu
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.allow_failure }}
     strategy:
       fail-fast: false
       matrix:
@@ -13,6 +14,7 @@ jobs:
         include:
           - python-version: "3.12.0-beta.4"
             allow_failure: true
+
     steps:
       - uses: actions/checkout@v3
 
